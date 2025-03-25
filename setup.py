@@ -1,13 +1,14 @@
 from setuptools import setup, find_packages
 
+# Read requirements.txt
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 setup(
     name='universal_timeseries_transformer',
     version='0.1.0',
     packages=find_packages(),
-    install_requires=[
-        'pandas',
-        'numpy',
-    ],
+    install_requires=required,
     author='June Young Park',
     author_email='juneyoungpaak@gmail.com',
     description='A package for transforming and manipulating time series data with universal interfaces',
