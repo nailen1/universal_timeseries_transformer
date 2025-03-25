@@ -4,6 +4,7 @@ from setuptools import setup, find_packages
 with open('requirements.txt') as f:
     required = f.read().splitlines()
 
+# Include requirements.txt in package data
 setup(
     name='universal_timeseries_transformer',
     version='0.1.0',
@@ -27,4 +28,5 @@ setup(
         'Programming Language :: Python :: 3.11',
     ],
     python_requires='>=3.8',
+    data_files=[('', ['requirements.txt'])],
 )
