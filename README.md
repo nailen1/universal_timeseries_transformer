@@ -4,6 +4,10 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.1.3 (2025-05-19)
+- Added new timeseries_application module with financial calculations
+- Added functions for returns and cumulative returns calculation
+
 ### v0.1.2 (2025-05-19)
 - Improved stability and performance optimization
 - Enhanced type checking functionality
