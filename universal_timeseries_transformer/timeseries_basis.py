@@ -1,5 +1,17 @@
 from string_date_controller import get_all_dates_between_dates
 
+def slice_timeseries_by_dates(timeseries, start_date, end_date):
+    df = timeseries.copy()
+    if start_date:
+        existing_start_date = df.loc[:start_date].index[-1]
+        if end_date:
+            df = df.loc[existing_start_date:end_date]
+        else:
+            df = df.loc[start_date:]
+    elif end_date:
+        df = df.loc[:end_date]
+    return df
+
 def get_dates_pair_of_timeseries(timeseries, start_date=None, end_date=None):
     initial_date, final_date = timeseries.index[0], timeseries.index[-1] 
     if start_date:
