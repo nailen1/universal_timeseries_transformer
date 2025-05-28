@@ -7,7 +7,7 @@ with open('requirements.txt') as f:
 # Include requirements.txt in package data
 setup(
     name='universal_timeseries_transformer',
-    version='0.1.3',
+    version='0.1.4',
     packages=find_packages(),
     install_requires=required,
     author='June Young Park',

@@ -4,6 +4,11 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.1.4 (2025-05-28)
+- Added verbose option to control log output
+- Enhanced timeseries extension functionality
+- Improved code readability and documentation
+
 ### v0.1.3 (2025-05-19)
 - Added new timeseries_application module with financial calculations
 - Added functions for returns and cumulative returns calculation
