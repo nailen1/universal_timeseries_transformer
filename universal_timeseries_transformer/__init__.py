@@ -4,4 +4,5 @@ from .dataframe_transformer import *
 from .timeseries_transformer import *
 from .timeseries_basis import *
 from .timeseries_application import *
+from .matrix_representation import *
 

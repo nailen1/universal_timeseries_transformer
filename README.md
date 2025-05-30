@@ -4,6 +4,11 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.1.5 (2025-05-30)
+- Added TimeseriesMatrix class for matrix representation of time series data
+- Enhanced data access with row, column, and component selection methods
+- Added format conversion methods (datetime, unixtime, string)
+
 ### v0.1.4 (2025-05-28)
 - Added verbose option to control log output
 - Enhanced timeseries extension functionality
