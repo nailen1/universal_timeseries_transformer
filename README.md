@@ -4,6 +4,11 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.1.6 (2025-06-01)
+- Added timeseries_slicer module with date-based and index-based slicing functions
+- Added timeseries_extender module with enhanced date extension functionality
+- Improved .gitignore to exclude Jupyter notebook files
+
 ### v0.1.5 (2025-05-30)
 - Added TimeseriesMatrix class for matrix representation of time series data
 - Enhanced data access with row, column, and component selection methods
