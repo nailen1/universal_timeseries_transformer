@@ -4,6 +4,10 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.1 (2025-06-03)
+- Added monthly_date_pairs property to PricesMatrix class for convenient monthly date analysis
+- Updated string_date_controller dependency to version 0.2.1 or higher
+
 ### v0.2.0 (2025-06-03)
 - Major version update as the module reaches maturity
 - Added date_ref property to PricesMatrix class for improved date reference handling
