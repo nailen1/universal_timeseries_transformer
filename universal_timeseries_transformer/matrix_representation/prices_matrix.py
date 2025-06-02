@@ -5,6 +5,7 @@ class PricesMatrix(TimeseriesMatrix):
     def __init__(self, prices, date_ref=None):
         super().__init__(df=prices, index_ref=date_ref)
         self._historical_dates = None
+        self.date_ref = self.index_ref
 
     @property
     def historical_dates(self):
