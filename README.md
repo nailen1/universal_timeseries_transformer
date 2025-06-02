@@ -4,6 +4,11 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.1.7 (2025-06-02)
+- Improved TimeseriesMatrix class with optimized property handling
+- Updated string_date_controller dependency to version 0.2.0 or higher
+- Removed unused date_calculus module
+
 ### v0.1.6 (2025-06-01)
 - Added timeseries_slicer module with date-based and index-based slicing functions
 - Added timeseries_extender module with enhanced date extension functionality

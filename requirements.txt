@@ -1,2 +1,2 @@
-string_date_controller>=0.1.7
+string_date_controller>=0.2.0
 pandas

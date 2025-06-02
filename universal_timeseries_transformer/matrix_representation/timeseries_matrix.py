@@ -13,8 +13,8 @@ class TimeseriesMatrix:
         self.df = df
         self.index_ref = index_ref
         self.srs_ref = self.set_srs_ref()
-        self.dates = list(df.index)
         self._basis = None
+        self._dates = None
         self._datetime = None
         self._unixtime = None
         self._string = None
@@ -25,8 +25,14 @@ class TimeseriesMatrix:
     @property
     def basis(self):
         if self._basis is None:
-            self._basis = np.array(self.dates)
+            self._basis = self.df.index.values
         return self._basis
+
+    @property
+    def dates(self):
+        if self._dates is None:
+            self._dates = list(self.basis)
+        return self._dates
 
     @property
     def date_i(self):
