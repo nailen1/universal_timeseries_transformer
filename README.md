@@ -4,6 +4,10 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.1.8 (2025-06-02)
+- Added PricesMatrix class extending TimeseriesMatrix for price data handling
+- Enhanced matrix representation capabilities with historical dates support
+
 ### v0.1.7 (2025-06-02)
 - Improved TimeseriesMatrix class with optimized property handling
 - Updated string_date_controller dependency to version 0.2.0 or higher
