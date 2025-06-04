@@ -4,6 +4,10 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.3 (2025-06-04)
+- Added new properties to PricesMatrix class: ytd_date_pairs, date_inception, date_end
+- Updated string_date_controller dependency to version 0.2.3 or higher
+
 ### v0.2.2 (2025-06-04)
 - Enhanced exception handling in PricesMatrix class
 - Added set_date_ref method for better date reference management
