@@ -4,6 +4,10 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.4 (2025-06-08)
+- Modified return calculation functions to display returns in percentage format (multiplied by 100)
+- Updated all return-related functions in timeseries_application.py
+
 ### v0.2.3 (2025-06-04)
 - Added new properties to PricesMatrix class: ytd_date_pairs, date_inception, date_end
 - Updated string_date_controller dependency to version 0.2.3 or higher
