@@ -19,7 +19,7 @@ def filter_prefix_of_timeseries_column_name(name_benchmark, prefix):
     name_benchmark = f'{prefix}{name_benchmark}'
     return name_benchmark
 
-def split_timeseries_to_two_columned_timeseries(timeseries, index_benchmark=1, name_benchmark=None, prefix=None):
+def split_timeseries_to_pair_timeseries(timeseries, index_benchmark=1, name_benchmark=None, prefix=None):
     df = timeseries.copy()
     if name_benchmark and prefix:
         name_benchmark = filter_prefix_of_timeseries_column_name(name_benchmark, prefix)
@@ -27,6 +27,6 @@ def split_timeseries_to_two_columned_timeseries(timeseries, index_benchmark=1, n
     create_df_with_benchmark = partial(create_two_column_df, df, benchmark_index)
     return list(map(create_df_with_benchmark, range(len(df.columns))))
 
-split_prices_to_two_columned_timeseries = partial(split_timeseries_to_two_columned_timeseries, prefix=None)
-split_returns_to_two_columned_timeseries = partial(split_timeseries_to_two_columned_timeseries, prefix='return: ')
-split_cumreturns_to_two_columned_timeseries = partial(split_timeseries_to_two_columned_timeseries, prefix='cumreturn: ')
+split_prices_to_pair_timeseries = partial(split_timeseries_to_pair_timeseries, prefix=None)
+split_returns_to_pair_timeseries = partial(split_timeseries_to_pair_timeseries, prefix='return: ')
+split_cumreturns_to_pair_timeseries = partial(split_timeseries_to_pair_timeseries, prefix='cumreturn: ')

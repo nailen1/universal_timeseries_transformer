@@ -4,6 +4,11 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.6 (2025-06-15)
+- Renamed functions in timeseries_splitter module for better clarity and consistency
+- Changed 'split_timeseries_to_two_columned_timeseries' to 'split_timeseries_to_pair_timeseries'
+- Updated related partial functions with the new naming convention
+
 ### v0.2.5 (2025-06-15)
 - Added timeseries_splitter module for splitting timeseries data into two-columned format
 - Fixed incomplete function in timeseries_splitter module
