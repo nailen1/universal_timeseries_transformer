@@ -1,7 +1,7 @@
 from string_date_controller import (
     get_all_data_historical_dates,
     get_all_data_monthly_date_pairs,
-    get_all_data_ytd_date_pairs,
+    get_all_data_yearly_date_pairs,
 )
 from .timeseries_matrix import TimeseriesMatrix
 
@@ -11,7 +11,7 @@ class PricesMatrix(TimeseriesMatrix):
         self.date_ref = self.set_date_ref(date_ref)
         self._historical_dates = None
         self._monthly_date_pairs = None
-        self._ytd_date_pairs = None
+        self._yearly_date_pairs = None
         self._date_inception = None
         self._date_end = None
 
@@ -31,10 +31,10 @@ class PricesMatrix(TimeseriesMatrix):
         return self._monthly_date_pairs
     
     @property
-    def ytd_date_pairs(self):
-        if self._ytd_date_pairs is None:
-            self._ytd_date_pairs = get_all_data_ytd_date_pairs(dates=self.dates)
-        return self._ytd_date_pairs
+    def yearly_date_pairs(self):
+        if self._yearly_date_pairs is None:
+            self._yearly_date_pairs = get_all_data_yearly_date_pairs(dates=self.dates)
+        return self._yearly_date_pairs
 
     @property
     def date_inception(self):

@@ -4,6 +4,10 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.5 (2025-06-15)
+- Added timeseries_splitter module for splitting timeseries data into two-columned format
+- Fixed incomplete function in timeseries_splitter module
+
 ### v0.2.4 (2025-06-08)
 - Modified return calculation functions to display returns in percentage format (multiplied by 100)
 - Updated all return-related functions in timeseries_application.py
