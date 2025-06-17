@@ -4,6 +4,11 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.7 (2025-06-17)
+- Updated string_date_controller dependency to version 0.2.7
+- Modified historical_dates property to use get_all_data_historical_date_pairs function
+- Added yearly_date_pairs property to PricesMatrix class
+
 ### v0.2.6 (2025-06-15)
 - Renamed functions in timeseries_splitter module for better clarity and consistency
 - Changed 'split_timeseries_to_two_columned_timeseries' to 'split_timeseries_to_pair_timeseries'
