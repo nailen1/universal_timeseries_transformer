@@ -9,7 +9,7 @@ class PricesMatrix(TimeseriesMatrix):
     def __init__(self, prices, date_ref=None):
         super().__init__(df=prices, index_ref=date_ref)
         self.date_ref = self.set_date_ref(date_ref)
-        self._historical_dates = None
+        self._historical_date_pairs = None
         self._monthly_date_pairs = None
         self._yearly_date_pairs = None
         self._date_inception = None
@@ -19,10 +19,10 @@ class PricesMatrix(TimeseriesMatrix):
         return date_ref if date_ref is not None else self.date_f
 
     @property
-    def historical_dates(self):
-        if self._historical_dates is None:
-            self._historical_dates = get_all_data_historical_date_pairs(dates=self.dates, date_ref=self.date_ref)
-        return self._historical_dates
+    def historical_date_pairs(self):
+        if self._historical_date_pairs is None:
+            self._historical_date_pairs = get_all_data_historical_date_pairs(dates=self.dates, date_ref=self.date_ref)
+        return self._historical_date_pairs
 
     @property
     def monthly_date_pairs(self):
