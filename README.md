@@ -4,6 +4,13 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.8 (2025-06-23)
+- Implemented cached_property decorator for lazy loading attributes
+- Added type hints for better code readability and IDE support
+- Improved documentation with class docstrings
+- Renamed historical_dates to historical_date_pairs for consistency
+- Added MANIFEST.in file for better package distribution
+
 ### v0.2.7 (2025-06-17)
 - Updated string_date_controller dependency to version 0.2.7
 - Modified historical_dates property to use get_all_data_historical_date_pairs function
