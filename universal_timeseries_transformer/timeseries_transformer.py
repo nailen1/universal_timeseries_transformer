@@ -130,9 +130,14 @@ def transform_timeseries(
        TypeFormat.DATETIME: transform_to_timeseries_with_datetime,
        TypeFormat.UNIX_TIMESTAMP: transform_to_timeseries_with_unixtime,
    }
+   MAPPING_INDEX_NAMES = {
+    TypeFormat.STRING: 'date',
+    TypeFormat.DATETIME: 'datetime',
+    TypeFormat.UNIX_TIMESTAMP: 'timestamp',
+   }
    
    transformer = mapping_transformers[target_format]
-   result = transformer(timeseries)
+   transformed_df = transformer(timeseries).rename_axis(MAPPING_INDEX_NAMES[target_format])
    
-   print(f"Transformed timeseries to {type(result.index[0])} index")
-   return result
+   print(f"Transformed timeseries to {type(transformed_df.index[0])} index")
+   return transformed_df

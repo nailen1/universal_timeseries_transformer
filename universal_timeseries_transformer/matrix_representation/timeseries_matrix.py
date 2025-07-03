@@ -1,14 +1,13 @@
 import numpy as np
-from functools import partial, cached_property
-from typing import Optional, List, Any, Union
+from functools import cached_property
+from typing import List, Any
 import pandas as pd
 from universal_timeseries_transformer.timeseries_transformer import transform_timeseries
 from universal_timeseries_transformer.timeseries_application import (
-    transform_timeseries_to_cumreturns_ref_by_series,
+    transform_timeseries_to_cumreturns_ref_by_index,
     transform_timeseries_to_cumreturns,
     transform_timeseries_to_returns,
 )
-from universal_timeseries_transformer.timeseries_slicer import slice_timeseries_around_index
 
 class TimeseriesMatrix:
     """
@@ -29,13 +28,8 @@ class TimeseriesMatrix:
         cumreturns_ref: Reference-based cumulative returns DataFrame (needs invalidation)
     """
     
-    def __init__(self, df: pd.DataFrame, index_ref: Optional[str] = None) -> None:
+    def __init__(self, df: pd.DataFrame) -> None:
         self.df = df
-        self.index_ref = index_ref
-        self.srs_ref = self.set_srs_ref()
-        
-        # Only cumreturns_ref needs manual cache (due to dynamic method attachment)
-        self._cumreturns_ref: Optional[pd.DataFrame] = None
 
     @cached_property
     def basis(self) -> np.ndarray:
@@ -56,11 +50,18 @@ class TimeseriesMatrix:
     @cached_property
     def datetime(self) -> pd.DataFrame:
         return transform_timeseries(self.df, 'datetime')
+    
+    @property
+    def dt(self) -> pd.DataFrame:
+        return self.datetime
 
     @cached_property
-    def unixtime(self) -> pd.DataFrame:
+    def timestamp(self) -> pd.DataFrame:
         return transform_timeseries(self.df, 'unix_timestamp')
-
+    
+    @cached_property
+    def unixtime(self) -> pd.DataFrame:
+        return self.timestamp
     @cached_property
     def string(self) -> pd.DataFrame:
         return transform_timeseries(self.df, 'str')
@@ -103,34 +104,7 @@ class TimeseriesMatrix:
     def columns_by_names(self, names: List[str]) -> pd.DataFrame:
         return self.df.loc[:, names]
 
-    @property
-    def cumreturns_ref(self) -> pd.DataFrame:
-        if self.index_ref is None:
-            raise ValueError("Cannot calculate cumreturns_ref: no reference index set")
-        if self._cumreturns_ref is None:
-            df = transform_timeseries_to_cumreturns_ref_by_series(self.df, self.srs_ref)
-            df.slice = partial(self.slice_cumreturns_ref)
-            df.slice_by_name = partial(self.slice_cumreturns_ref_by_name)
-            self._cumreturns_ref = df
-        return self._cumreturns_ref
-
-    def set_srs_ref(self) -> Optional[pd.Series]:
-        if self.index_ref is not None:
-            return self.row_by_name(self.index_ref).iloc[0]
-        else:
-            return None
-
-    def slice_cumreturns_ref(self, index_start: int, index_end: int) -> Optional[pd.DataFrame]:
-        if self._cumreturns_ref is None:
-            return None
-        return slice_timeseries_around_index(
-            timeseries=self._cumreturns_ref, 
-            index_ref=self.index_ref, 
-            index_start=index_start, 
-            index_end=index_end
-        )
-
-    def slice_cumreturns_ref_by_name(self, name_start: str, name_end: str) -> Optional[pd.DataFrame]:
-        if self._cumreturns_ref is None:
-            return None
-        return self._cumreturns_ref.loc[name_start:name_end]
+    def get_cumreturns_ref(self, index_ref: str) -> pd.DataFrame:
+        df = transform_timeseries_to_cumreturns_ref_by_index(self.string, index_ref)
+        return df
+        

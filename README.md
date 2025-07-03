@@ -4,6 +4,13 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.9 (2025-07-03)
+- Standardized property names in TimeseriesMatrix class
+- Added 'dt' property as an alias for 'datetime'
+- Added 'timestamp' property as the standard name for 'unixtime'
+- Simplified TimeseriesMatrix by removing reference-based methods
+- Improved index naming in transformed dataframes
+
 ### v0.2.8 (2025-06-23)
 - Implemented cached_property decorator for lazy loading attributes
 - Added type hints for better code readability and IDE support
