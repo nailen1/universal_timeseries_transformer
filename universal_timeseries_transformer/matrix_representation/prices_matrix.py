@@ -7,7 +7,7 @@ from .timeseries_matrix import TimeseriesMatrix
 
 class PricesMatrix(TimeseriesMatrix):
     def __init__(self, prices, date_ref=None):
-        super().__init__(df=prices, index_ref=date_ref)
+        super().__init__(df=prices)
         self.date_ref = self.set_date_ref(date_ref)
         self._historical_date_pairs = None
         self._monthly_date_pairs = None

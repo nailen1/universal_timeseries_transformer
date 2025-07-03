@@ -4,6 +4,10 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.2.10 (2025-07-03)
+- Fixed compatibility issues in PricesMatrix with TimeseriesMatrix changes
+- Updated constructor parameter handling for better inheritance
+
 ### v0.2.9 (2025-07-03)
 - Standardized property names in TimeseriesMatrix class
 - Added 'dt' property as an alias for 'datetime'
