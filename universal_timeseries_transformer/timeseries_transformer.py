@@ -31,7 +31,7 @@ class TypeFormat(Enum):
 FORMAT_ALIASES = {
    'str': TypeFormat.STRING,
    'dt': TypeFormat.DATETIME,
-   'unix': TypeFormat.UNIX_TIMESTAMP,
+   'timestamp': TypeFormat.UNIX_TIMESTAMP,
 }
 
 
@@ -100,7 +100,7 @@ def transform_timeseries(
    
    Args:
        timeseries: Input DataFrame with time-based index
-       option_type: Target format ('string', 'datetime', 'unix_time') or TimeseriesFormat enum
+       option_type: Target format ('string', 'datetime', 'unix_timestamp', 'dt', 'str', 'timestamp') or TimeseriesFormat enum
        
    Returns:
        DataFrame with transformed index

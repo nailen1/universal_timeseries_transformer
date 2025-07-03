@@ -4,6 +4,12 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.3.0 (2025-07-03)
+- Standardized timestamp format aliases across the package
+- Updated FORMAT_ALIASES to use 'timestamp' instead of 'unix'
+- Improved documentation for transform_timeseries_index function
+- Completed timestamp conversion functionality with consistent naming
+
 ### v0.2.10 (2025-07-03)
 - Fixed compatibility issues in PricesMatrix with TimeseriesMatrix changes
 - Updated constructor parameter handling for better inheritance
