@@ -1,7 +1,8 @@
 import numpy as np
 from functools import cached_property
-from typing import List, Any
+from typing import List, Any, Optional, Union
 import pandas as pd
+from universal_timeseries_transformer.visualizer.utils import plot_timeseries
 from universal_timeseries_transformer.timeseries_transformer import transform_timeseries
 from universal_timeseries_transformer.timeseries_application import (
     transform_timeseries_to_cumreturns_ref_by_index,
@@ -106,5 +107,37 @@ class TimeseriesMatrix:
 
     def get_cumreturns_ref(self, index_ref: str) -> pd.DataFrame:
         df = transform_timeseries_to_cumreturns_ref_by_index(self.string, index_ref)
+        self.cumreturns_ref = df
+        self.index_ref = index_ref
         return df
         
+    def plot(
+            self, 
+            option_main: bool = True, 
+            option_last_value: Optional[Union[List[str], bool]] = True, 
+            option_last_name: Optional[Union[bool, List[str]]] = False, 
+            option_num_to_show: Union[int, bool] = 1, 
+            option_ref_area: bool = True, 
+            decimal_places: int = 2, 
+            title: Optional[str] = None,
+            x_label: Optional[str] = None,
+            y_label: Optional[str] = None,
+            figsize: tuple = (12, 6),
+            ):
+        if not hasattr(self, 'index_ref'):
+            self.get_cumreturns_ref(index_ref=self.date_i)
+        
+        plot_timeseries(
+            timeseries=self.cumreturns_ref, 
+            index_ref=self.index_ref,
+            option_main=option_main, 
+            option_last_value=option_last_value, 
+            option_last_name=option_last_name, 
+            option_num_to_show=option_num_to_show, 
+            option_ref_area=option_ref_area, 
+            decimal_places=decimal_places, 
+            title=title,
+            x_label=x_label,
+            y_label=y_label,
+            figsize=figsize,
+            )
