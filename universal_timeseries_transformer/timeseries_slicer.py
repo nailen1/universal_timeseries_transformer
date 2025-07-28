@@ -1,5 +1,5 @@
 
-def slice_timeseries_by_dates(timeseries, start_date, end_date):
+def slice_timeseries_by_dates(timeseries, start_date=None, end_date=None):
     df = timeseries.copy()
     if start_date:
         existing_start_date = df.loc[:start_date].index[-1]
