@@ -8,6 +8,5 @@ from .matrix_representation import *
 from .timeseries_slicer import *
 from .timeseries_extender import *
 from .timeseries_splitter import *
+from .timeseries_decomposer import *
 from .visualizer import *
-
-
