@@ -50,26 +50,33 @@ def map_dates_str_to_unix_timestamps(dates):
         raise ValueError(f"Failed to convert dates: {str(e)}")
     
 
+
 def map_unix_timestamps_to_datetimes(timestamps):
     if not isinstance(timestamps, (list, pd.Series, pd.Index)):
         raise TypeError("Input must be a list, pandas Series, or Index")
-    
-    if not timestamps:
-        raise ValueError("Input cannot be empty")
-    
-    if not all(isinstance(ts, (int, np.int64, float, np.float64)) for ts in timestamps):
+
+    if isinstance(timestamps, (pd.Index, pd.Series)):
+        if timestamps.empty:
+            raise ValueError("Input cannot be empty")
+    else:
+        if not timestamps:
+            raise ValueError("Input cannot be empty")
+
+    if not all(isinstance(ts, (int, np.integer, float, np.floating)) for ts in list(timestamps[:5])):
         raise TypeError("All elements must be numeric (int or float)")
-    
+
     sample_ts = timestamps[0]
-    
-    if sample_ts < 1e9:
+    if sample_ts < 1e10:
         unit = 's'
-    elif sample_ts < 1e12:
+    elif sample_ts < 1e13:
         unit = 'ms'
+    elif sample_ts < 1e16:
+        unit = 'us'
     else:
         unit = 'ns'
-    
+
     try:
-        return pd.to_datetime(timestamps, unit=unit)
+        return pd.to_datetime(timestamps, unit=unit, utc=True)
     except Exception as e:
         raise ValueError(f"Failed to convert timestamps with unit '{unit}': {str(e)}")
+    
