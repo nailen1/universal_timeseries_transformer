@@ -63,6 +63,7 @@ class TimeseriesMatrix:
     @cached_property
     def unixtime(self) -> pd.DataFrame:
         return self.timestamp
+    
     @cached_property
     def string(self) -> pd.DataFrame:
         return transform_timeseries(self.df, 'str')

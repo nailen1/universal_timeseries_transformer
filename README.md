@@ -4,6 +4,12 @@ A Python package that provides a universal interface for transforming and manipu
 
 ## Version Updates
 
+### v0.3.8 (2025-01-27)
+- Enhanced unix timestamp conversion for broader compatibility
+- Added automatic unit detection (seconds, milliseconds, nanoseconds) in map_unix_timestamps_to_datetimes
+- Improved error handling and validation in timestamp conversion functions
+- Added support for pd.Index type in date conversion functions
+
 ### v0.3.0 (2025-07-03)
 - Standardized timestamp format aliases across the package
 - Updated FORMAT_ALIASES to use 'timestamp' instead of 'unix'
